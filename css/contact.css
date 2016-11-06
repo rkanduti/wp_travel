@@ -107,11 +107,11 @@ h1 {
 input[type="submit"] {
   cursor: pointer;
 }
-#from input {
+#contact_form input {
   font-size: 14px;
 }
 
-#from input[type="submit"] {
+#contact_form input[type="submit"] {
   background: #0A1612;
   border-radius: 3px;
   color: #F7CE3E;
@@ -122,6 +122,21 @@ input[type="submit"] {
   float: right;
 }
 
-#from input[type="submit"]:hover {
+#contact_form input[type="submit"]:hover {
   background: #3E3141;
+}
+
+
+#contact_form input[type="text"] {
+  border: 1px solid #dcdcdc;
+  padding: 10px 10px;
+  width: 60%;
+  float: right;
+}
+
+#contact_form textarea {
+  border: 1px solid #dcdcdc;
+  padding: 10px 10px;
+  width: 60%;
+  float: right;
 }
