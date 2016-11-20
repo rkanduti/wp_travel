@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/add.css">
+  </head>
+  <body>
+    <div class="row header">
+      <div class="col-2">
+        <img src="pictures/logo.svg" class="logo"/>
+      </div>
+      <div class="col-8">
+        <h1>Travel tracker</h1>
+      </div>
+      <div class="col-2">
+        <p>Username | Logout</p>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="col-2">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="#">Travel orders</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="col-2 logo_div">
+      </div>
+      <div class="col-4 overview">
+        <h2>New travel order</h2>
+        <form action="#" id="from">
+          <p>Date of Departure<input type="text"  name="user"></p>
+          <p>Date of Return<input type="text"  name="user"></p>
+          <p>Destination<input type="text"  name="user"></p>
+          <h3>Estimated expenses</h3>
+          <p><input type="checkbox" name="vehicle" value="Bike">Reimbursement not required</p>  
+          <p><input type="radio" name="gender" value="male"> Travel with company car</p>
+          <p><input type="radio" name="gender" value="female"> Travel with personal car</p>
+          <p><input type="radio" name="gender" value="other"> Other</p>
+          <p><input type="radio" name="gender" value="female" style="margin-left: 2em;"> Bus</p>
+          <p><input type="radio" name="gender" value="female" style="margin-left: 2em;"> Train</p>
+          <p><input type="submit" value="Submit" />
+          <p>Total estimation <input type="text"  name="user" id="total" style="width: 30% !important; float: none !important;"> €</p>
+        </form>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </body>
+</html>
