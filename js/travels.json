@@ -6,7 +6,19 @@ travels = {
             "date": "2016-11-20",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
-            "status": "Open"
+            "status": "Open",
+            "expenses": [
+                {
+                    "id": 1,
+                    "name": "Food",
+                    "price": "5"
+                },
+                {
+                    "id": 2,
+                    "name": "Food",
+                    "price": "5"
+                }
+            ]
         },
         {
             "id": 2,

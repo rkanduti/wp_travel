@@ -4,20 +4,88 @@ function loadData() {
     var travel = travels["travel"];
     for(i in travel) {
         if(travel[i].id == id)  {
-            console.log(travel[i].destination);
-            console.log(travel[i].date);
-            console.log(travel[i].status);
             document.getElementById("departure").value = travel[i].departure;
             document.getElementById("arrival").value = travel[i].arrival;
             document.getElementById("destination").value = travel[i].destination;
-            document.getElementById("status").innerHTML = travel[i].status;
+            document.getElementById("status").value = travel[i].status;
+            document.getElementById("status").disabled = true;
+
             if(travel[i].status == "Closed") {
                 document.getElementById("close").disabled = true;
                 document.getElementById("departure").disabled = true;
                 document.getElementById("arrival").disabled = true;
                 document.getElementById("destination").disabled = true;
             }
+
+            var expenses = travel[i].expenses;
+
+            for(j in expenses) {
+                var id = "panel#" + expenses[j].id;
+                document.getElementById("acc").innerHTML += '<button type="button" class="accordion '+id+'" id="'+id+'">'+expenses[j].name+'</button>'+
+                                                            '<div class="panel '+id+'" style="margin-left: 1em; margin-right: 1em;">'+
+                                                            '    <p>Name<input type="text" onchange="edited(\''+id+'\', this.value)" name="status" id="status" value="'+expenses[j].name+'"></p>'+
+                                                            '    <p>Amount (&euro;)<input type="text" name="status" id="status" value="'+expenses[j].price+'"></p>'+
+                                                            '    <p>Proof<input type="file" accept="image/*" onchange="loadFile(event)"></p>'+
+                                                            '    <p><button type="button" class="remove" onclick="remove(\''+id+'\')" name="status" id="status" style="margin-bottom: 5px;">Remove</button></p>'+
+                                                            '</div>';
+            }
             break;
         }
     }
+
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+      }
+    }
+}
+
+function addAccordium() {
+    try {
+        var acc = document.getElementsByClassName("accordion");
+        var next = Number(acc[acc.length-1].className.split(' ')[1].split('#')[1])+1;
+    }
+    catch(err) {
+        var next = 1;
+    }
+
+    var id = "panel#"+next;
+    var text = document.createElement('div');
+    text.innerHTML += '<button type="button" class="accordion panel#'+next+'" id="panel#'+next+'" id="panel#'+next+'"></button>'+
+                      '<div class="panel panel#'+next+'" style="margin-left: 1em; margin-right: 1em;">'+
+                      '    <p>Name<input type="text" onchange="edited(\''+id+'\', this.value, this)" name="status" id="status" value=""></p>'+
+                      '    <p>Amount (&euro;)<input type="text" name="status" id="status"></p>'+
+                      '    <p>Proof<input type="file" accept="image/*" onchange="loadFile(event)"></p>'+
+                      '    <p><button type="button" class="remove" onclick="remove(\''+id+'\')" name="status" id="status" style="margin-bottom: 5px;">Remove</button></p>'+
+                      '</div>';
+
+    document.getElementById("acc").appendChild(text);
+
+    var acc = document.getElementsByClassName("panel#"+next);
+    console.log(acc[0]);
+    setTimeout(function() {acc[0].click();}, 100);
+    var i;
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+      }
+    }
+}
+
+function edited(id, val, input) {
+    document.getElementById(id).innerHTML = val;
+    input.innerHTML = val;
+}
+
+function remove(id) {
+    var toRemove = document.getElementsByClassName(id);
+
+    toRemove[1].remove();
+    toRemove[0].remove();
 }
