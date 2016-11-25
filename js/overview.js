@@ -1,8 +1,27 @@
 
+ function loadJSON(callback) {   
+
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'travels.json', true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);  
+ }
+
 function populateTable() {
     var table = document.getElementById("table");
-    var data = new Array(), j = -1;
-    var travel = travels["travel"];        
+    loadJSON(function(response) {
+    // Parse JSON string into object
+        var actual_JSON = JSON.parse(response);
+        console.log(actual_JSON);
+    });
+    /*var travel = travels["travel"];   
+    var data = new Array(), j = -1;     
     data[++j] = '<thead><tr><th>';
     data[++j] = "Destination";
     data[++j] = '</td><th>';
@@ -26,7 +45,7 @@ function populateTable() {
     }
     data[++j] = '</tbody>';
 
-    table.innerHTML = data.join('');
+    table.innerHTML = data.join('');*/
 }
 
 function openOrder(id) {

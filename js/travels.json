@@ -14,7 +14,7 @@ travels = {
                     "price": "5"
                 },
                 {
-                    "id": 2,
+                    "id": 2 ,
                     "name": "Food",
                     "price": "5"
                 }
