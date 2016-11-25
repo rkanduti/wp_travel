@@ -222,3 +222,54 @@ li .active {
 .sum {
   padding-left: 2em;
 }
+thead, tbody, tr, td, th { 
+  display: block; 
+}
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+table {
+    display: block;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tbody {
+  height: 300px;
+  overflow-y: auto;
+    overflow:auto;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+  background: #6a6a6a;
+}
+tbody td, thead th {
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+tr:hover {
+  background: #a8a8a8;
+}
+
+.openOrder {
+  color: #880015;
+}
+
+.openOrder:hover {
+  cursor: pointer;
+}

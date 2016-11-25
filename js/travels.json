@@ -1,0 +1,84 @@
+travels = {
+    "travel": [
+        {
+            "id": 1,
+            "destination": "London",
+            "date": "2016-11-20",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Open"
+        },
+        {
+            "id": 2,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 3,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 4,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 5,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 6,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 7,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 8,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 9,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        },
+        {
+            "id": 10,
+            "destination": "New York",
+            "date": "12.4.2016",
+            "departure": "20.11.2016",
+            "arrival": "20.11.2016",
+            "status": "Closed"
+        }
+    ]
+}

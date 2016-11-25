@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link rel="stylesheet" href="css/add.css">
-  </head>
-  <body>
-    <div class="row header">
-      <div class="col-2">
-        <img src="pictures/logo.svg" class="logo"/>
-      </div>
-      <div class="col-8">
-        <h1>Travel tracker</h1>
-      </div>
-      <div class="col-2">
-        <p>Username | Logout</p>
-      </div>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New travel order</title>
+  <link rel="stylesheet" href="css/add.css">
+  <script src="js/add.js"></script>
+</head>
+<body>
+  <div class="row header">
+    <div class="col-2 col-m-2">
+      <img src="pictures/logo2.svg" class="logo"/>
     </div>
-    <div class="row container">
-      <div class="col-2">
-        <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="#">Travel orders</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
-        </ul>
-      </div>
-      <div class="col-2 logo_div">
-      </div>
-      <div class="col-4 overview">
-        <h2>New travel order</h2>
-        <form action="#" id="from">
-          <p>Date of Departure<input type="text"  name="user"></p>
-          <p>Date of Return<input type="text"  name="user"></p>
-          <p>Destination<input type="text"  name="user"></p>
-          <h3>Estimated expenses</h3>
-          <p><input type="checkbox" name="vehicle" value="Bike">Reimbursement not required</p>  
-          <p><input type="radio" name="gender" value="male"> Travel with company car</p>
-          <p><input type="radio" name="gender" value="female"> Travel with personal car</p>
-          <p><input type="radio" name="gender" value="other"> Other</p>
-          <p><input type="radio" name="gender" value="female" style="margin-left: 2em;"> Bus</p>
-          <p><input type="radio" name="gender" value="female" style="margin-left: 2em;"> Train</p>
-          <p><input type="submit" value="Submit" />
+    <div class="col-8 col-m-8">
+      <h1>Travel tracker</h1>
+    </div>
+    <div class="col-2 col-m-2">
+      <p><a href="#">rkanduti</a> | <a href="#">Logout</a></p>
+    </div>
+  </div>
+  <div class="row container">
+    <div class="col-2 col-m-2">
+      <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="#">Travel orders</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+      </ul>
+    </div>
+    <div class="col-1 col-m-8 ">
+    </div>
+    <div class="col-6 col-m-8 overview">
+      <h2>New travel order</h2>
+      <form action="#" id="from">
+        <p>Date of Departure<input type="date"  name="departure" id="departure"></p>
+        <p>Date of Return<input type="date"  name="arrival" id="arrival"></p>
+        <p>Destination<input type="text"  name="destination" id="destination"></p>
+        <h3>Estimated expenses</h3>
+        <p><input type="checkbox" onclick="check()" name="notReq" value="notReq" id="notReq">Reimbursement not required</p>  
+        <p><input type="radio" onclick="checkRadios(this)" name="type" value="comCar" id="comCar" class="radios"> Travel with company car</p>
+        <p><input type="radio" onclick="checkRadios(this)" name="type" value="perCar" id="perCar" class="radios"> Travel with personal car</p>
+        <p><input type="radio" onclick="checkRadios(this)" name="type" value="other" id="other" class="radios"> Other</p>
+        <p><input type="radio" name="comm" value="bus" id="train" class="others" style="margin-left: 2em;"> Bus</p>
+        <p><input type="radio" name="comm" value="train" id="train" class="others" style="margin-left: 2em;"> Train</p>
+        <p><input type="submit" value="Submit" />
           <p>Total estimation <input type="text"  name="user" id="total" style="width: 30% !important; float: none !important;"> €</p>
         </form>
       </div>
       <div class="col-2"></div>
     </div>
   </body>
-</html>
+  </html>
