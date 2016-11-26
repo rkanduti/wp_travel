@@ -70,6 +70,7 @@ body {
     .col-s-12 {width: 100%;}
     .logo_pic {
         position: relative;
+        width: 80%;
     }
     .login_div {
       padding-top: 10%;

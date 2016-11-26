@@ -176,7 +176,7 @@ input[type="submit"] {
   border: 2px solid #4d4d4d;
   float: right;
 }
-button.add, button.cancel, button.submit , button.remove {
+button.add, button.cancel, button.submit, button.remove, button.back {
   cursor: pointer;
   background: #d3d3d3;
   border-radius: 3px;
@@ -223,6 +223,10 @@ li a:hover {
 li .active {
   background-color: #1a1a1a;
   color: white;
+}
+
+li .sub {
+  margin-left: 1em;
 }
 
 .overview {
