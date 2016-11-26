@@ -1,0 +1,13 @@
+{
+    "users" : [
+        {
+            "id": 1,
+            "username": "rkanduti",
+            "mail": "rok@mail.com",
+            "password": "geslo",
+            "firstname": "Janez",
+            "lastname": "Novak",
+            "company": "SPICA"
+        }
+    ]
+}
