@@ -88,7 +88,6 @@ form {
 
 .logo {
   height: auto; 
-  float: center; 
   margin-left: 1em;
   position: relative;
 }
@@ -111,11 +110,11 @@ h1 {
 input[type="submit"] {
   cursor: pointer;
 }
-#from input {
+input {
   font-size: 14px;
 }
 
-#from input[type="submit"] {
+input[type="submit"] {
   background: #0A1612;
   border-radius: 3px;
   color: #F7CE3E;
@@ -126,6 +125,6 @@ input[type="submit"] {
   float: right;
 }
 
-#from input[type="submit"]:hover {
+input[type="submit"]:hover {
   background: #3E3141;
 }

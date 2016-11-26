@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New travel order</title>
   <link rel="stylesheet" href="css/add.css">
@@ -9,7 +10,7 @@
 <body onload="populateCountries()">
   <div class="row header">
     <div class="col-2 col-m-2">
-      <img src="pictures/logo2.svg" class="logo"/>
+      <img src="pictures/logo2.svg" class="logo" alt="Logo"/>
     </div>
     <div class="col-8 col-m-8">
       <h1>Travel tracker</h1>
@@ -45,7 +46,7 @@
         <p><input type="radio" onclick="checkRadios(this)" name="type" value="comCar" id="comCar" class="radios"> Travel with company car</p>
         <p><input type="radio" onclick="checkRadios(this)" name="type" value="perCar" id="perCar" class="radios"> Travel with personal car</p>
         <p><input type="radio" onclick="checkRadios(this)" name="type" value="other" id="other" class="radios"> Other</p>
-        <p><input type="radio" name="comm" value="bus" id="train" class="others" style="margin-left: 2em;"> Bus</p>
+        <p><input type="radio" name="comm" value="bus" id="bus" class="others" style="margin-left: 2em;"> Bus</p>
         <p><input type="radio" name="comm" value="train" id="train" class="others" style="margin-left: 2em;"> Train</p>
         <p><input type="submit" value="Submit" /></p>
           <p>Total estimation <input type="text"  name="user" id="total" style="width: 30% !important; float: none !important;"> €</p>
