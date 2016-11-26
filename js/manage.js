@@ -1,3 +1,5 @@
+var trav;
+
 function sendRequest() {
     var oReq = new XMLHttpRequest();
     //oReq.addEventListener("load", goalsJson);
@@ -5,7 +7,7 @@ function sendRequest() {
     //oReq.open("GET", "goals.json");
     oReq.open("GET", "js/travels.json");
     oReq.responseType = "text";
-    oReq.send()
+    oReq.send();
 }
 
 
@@ -16,6 +18,7 @@ function loadData() {
     var travel = travels["travel"];
     for(i in travel) {
         if(travel[i].id == id)  {
+            trav = travel[i];
             var readOnly = "";
             var disabled = "";
             document.getElementById("departure").value = travel[i].departure;
@@ -30,6 +33,7 @@ function loadData() {
                 document.getElementById("arrival").readOnly = true;
                 document.getElementById("destination").readOnly = true;
                 document.getElementById("add").disabled = true;
+                document.getElementById("countries").disabled = true;
                 readOnly = "readonly";
                 disabled = "disabled";
 
@@ -50,8 +54,16 @@ function loadData() {
             }
             break;
         }
+
     }
 
+    oReq = new XMLHttpRequest();
+    //oReq.addEventListener("load", goalsJson);
+    oReq.addEventListener("load", parseCountries);
+    //oReq.open("GET", "goals.json");
+    oReq.open("GET", "js/countries.json");
+    oReq.responseType = "text";
+    oReq.send();
 
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -61,6 +73,20 @@ function loadData() {
             this.classList.toggle("active");
             this.nextElementSibling.classList.toggle("show");
       }
+    }
+}
+
+function parseCountries(event) {
+    var countries = JSON.parse(this.responseText);
+    countries = countries["countries"];
+
+    var select = document.getElementById("countries");
+
+    for(var i in countries) {
+        if(trav.countryID == countries[i].id) 
+            select.innerHTML += '<option value="'+countries[i].id+'" selected>'+countries[i].name+'</option>';
+        else
+            select.innerHTML += '<option value="'+countries[i].id+'">'+countries[i].name+'</option>';
     }
 }
 

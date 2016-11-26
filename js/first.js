@@ -28,7 +28,7 @@ function parseUser() {
             document.getElementById("firstname").innerHTML = users[i].firstname;
             document.getElementById("lastname").innerHTML = users[i].lastname;
             document.getElementById("company").innerHTML = users[i].company;
-        }
+        }     
     }
 }
 

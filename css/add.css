@@ -188,6 +188,12 @@ p {
   width: 60%;
   float: right;
 }
+select {
+  border: 1px solid #dcdcdc !important;
+  padding: 4px 10px;
+  width: 60%;
+  float: right;
+}
 
 ul {
   list-style-type: none;

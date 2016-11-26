@@ -3,6 +3,7 @@
         {
             "id": 1,
             "destination": "London",
+            "countryID": "42",
             "date": "2016-11-20",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -22,7 +23,8 @@
         },
         {
             "id": 2,
-            "destination": "New York",
+            "destination": "Berlin",
+            "countryID": "14",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -42,7 +44,7 @@
         },
         {
             "id": 3,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -50,7 +52,7 @@
         },
         {
             "id": 4,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -58,7 +60,7 @@
         },
         {
             "id": 5,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -66,7 +68,7 @@
         },
         {
             "id": 6,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -74,7 +76,7 @@
         },
         {
             "id": 7,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -82,7 +84,7 @@
         },
         {
             "id": 8,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -90,7 +92,7 @@
         },
         {
             "id": 9,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",
@@ -98,7 +100,7 @@
         },
         {
             "id": 10,
-            "destination": "New York",
+            "destination": "Berlin",
             "date": "2016-04-12",
             "departure": "2016-11-20",
             "arrival": "2016-11-20",

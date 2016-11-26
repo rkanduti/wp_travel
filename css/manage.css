@@ -200,6 +200,13 @@ input[type="text"], input[type="date"], input[type="file"] {
   float: right;
 }
 
+select {
+  border: 1px solid #dcdcdc !important;
+  padding: 4px 10px;
+  width: 70%;
+  float: right;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
