@@ -5,8 +5,8 @@ This is my app for __**Web programming**__ that is used for tracking, editing an
 
 It will be used by: 
 * __employee__
-* __accountant__
-* __manager__
+* __accountant (not implemented)__
+* __manager (not implemented)__
 
 ### Workflow
 Employee will file in the application for traveling, manager will either confirm or modify it. If the application is approved he will get the travel order.
