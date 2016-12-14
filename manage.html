@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage travel order</title>
+  <link rel="stylesheet" href="css/manage.css">
+  <script src="js/manage.js"></script>
+</head>
+<body onload="sendRequest()">
+  <div class="row header">
+    <div class="col-2 col-m-2">
+      <img src="pictures/logo2.svg" class="logo" alt="Logo"/>
+    </div>
+    <div class="col-8 col-m-8">
+      <h1>Travel tracker</h1>
+    </div>
+    <div class="col-2 col-m-2">
+      <p><a href="#">rkanduti</a> | <a href="index.html">Logout</a></p>
+    </div>
+  </div>
+  <div class="row container">
+    <div class="col-2 col-m-2">
+      <ul>
+        <li><a href="first.html">Home</a></li>
+        <li>
+          <a href="overview.html">Travel orders</a>
+          <ul>
+            <li><a class="sub" href="add.html">New order</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact us</a></li>
+      </ul>
+    </div>
+    <div class="col-1 col-m-8 ">
+    </div>
+    <div class="col-6 col-m-8 overview">
+      <h2>Edit travel order</h2>
+      <form>
+        <div class="row">
+            <div>
+              <p>Departure<input type="date"  name="departure" id="departure"></p>
+              <p>Arrival<input type="date"  name="arrival" id="arrival"></p>
+              <p>Destination<input type="text"  name="destination" id="destination"></p>
+              <p>Country<select id="countries"><option disabled selected value>Select a country</option></select></p>
+              <p>Status<input type="text"  name="status" id="status"></p>
+              <p><input type="checkbox" name="close" value="close" id="close">Close</p>
+            </div>
+        </div>
+        <div class="row" id="acc">
+        </div>
+        <div class="row">
+            <p><button type="button" class="add" id="add" onclick="addAccordium()">Add</button></p>
+        </div>
+        <div class="row" id="control">
+            <p><input type="submit" formaction="overview.html" value="Cancel" class="cancel"></p>
+            <p><button type="button" onclick="saveJSON()" class="submit">Submit</button></p>
+        </div>
+      </form>
+    </div>
+    <div class="col-2"></div>
+    </div>
+  </body>
+</html>

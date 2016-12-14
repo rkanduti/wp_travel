@@ -1,0 +1,110 @@
+{
+    "travel" : [
+        {
+            "id": 1,
+            "destination": "London",
+            "countryID": "42",
+            "date": "2016-11-20",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Open",
+            "expenses": [
+                {
+                    "id": 1,
+                    "name": "Food",
+                    "price": "5"
+                },
+                {
+                    "id": 2 ,
+                    "name": "Food",
+                    "price": "5"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "destination": "Berlin",
+            "countryID": "14",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed",
+            "expenses": [
+                {
+                    "id": 1,
+                    "name": "Food",
+                    "price": "5"
+                },
+                {
+                    "id": 2 ,
+                    "name": "Food",
+                    "price": "5"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        },
+        {
+            "id": 4,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        },
+        {
+            "id": 5,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        },
+        {
+            "id": 6,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        },
+        {
+            "id": 7,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        },
+        {
+            "id": 8,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        },
+        {
+            "id": 9,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        },
+        {
+            "id": 10,
+            "destination": "Berlin",
+            "date": "2016-04-12",
+            "departure": "2016-11-20",
+            "arrival": "2016-11-20",
+            "status": "Closed"
+        }
+    ]
+}
