@@ -45,7 +45,7 @@ function loadData() {
             for(j in expenses) {
                 var id = "panel#" + expenses[j].id;
                 document.getElementById("acc").innerHTML += '<button type="button" class="accordion '+id+'" id="'+id+'">'+expenses[j].name+'</button>'+
-                                                            '<div class="panel '+id+'" style="margin-left: 1em; margin-right: 1em;">'+
+                                                            '<div class="panel #'+id+'" style="margin-left: 1em; margin-right: 1em;">'+
                                                             '    <p>Name<input '+readOnly+' type="text" onchange="edited(\''+id+'\', this.value)" name="status" id="status" value="'+expenses[j].name+'"></p>'+
                                                             '    <p>Amount (&euro;)<input '+readOnly+' type="text" name="status" id="status" value="'+expenses[j].price+'"></p>'+
                                                             '    <p>Proof<input '+disabled+' type="file" accept="image/*" onchange="loadFile(event)"></p>'+

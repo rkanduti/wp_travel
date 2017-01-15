@@ -241,3 +241,13 @@ input[type="submit"] {
   font-size: 12px;
   margin-top: 16px;
 }
+
+.errors {
+  background-color: #757E82;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}

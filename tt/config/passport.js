@@ -3,7 +3,6 @@ LocalStrategy = require('passport-local').Strategy,
 bcrypt = require('bcryptjs');
 
 passport.serializeUser(function(user, done) {
-    sails.log(user);
     done(null, user.userid);
 });
 
@@ -29,12 +28,8 @@ passport.use(new LocalStrategy({
             return done(null, false, {
               message: 'Invalid Password'
             });
-          var returnUser = {
-            username: user.username,
-            createdAt: user.createdAt,
-            userid: user.userid
-          };
-          return done(null, returnUser, {
+
+          return done(null, user, {
             message: 'Logged In Successfully'
           });
         });

@@ -11,21 +11,26 @@ module.exports = {
     login: function(req, res) {
 
         passport.authenticate('local', function(err, user, info) {
+          sails.log(info);
             if ((err) || (!user)) {
-                return res.redirect("/login");
+                return res.view("login", {messages: info});
             }
             req.logIn(user, function(err) {
                 if (err) {
-                  res.redirect("/login");
+                  return res.view("login", {messages: info});
                 }
-                return res.redirect("/index");
+
+                req.session.user = user;
+                return res.redirect("/");
             });
 
         })(req, res);
     },
 
     logout: function(req, res) {
+        sails.log(req.isAuthenticated());
         req.logout();
+        sails.log("logout");
         res.redirect('/');
     }
 };

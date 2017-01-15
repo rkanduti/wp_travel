@@ -33,11 +33,15 @@ module.exports = {
       size: 24
     },
     companyid: {
-      type: 'integer'
+      model: 'company'
     },
     num: {
       type: 'integer',
       defaultsTo: 0
+    },
+    travels: {
+      collection: 'travel',
+      via: 'userid'
     },
     toJSON: function() {
       var obj = this.toObject();

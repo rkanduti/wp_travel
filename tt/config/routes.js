@@ -21,19 +21,27 @@
  */
 
 module.exports.routes = {
-  '/': 'ControllerController.firstPage',
+  '/': 'IndexController.index',
 
   'get /login': {
     view: 'login'
   },
 
   'post /login': 'AuthController.login',
+  'post /new': 'IndexController.newTravel',
+  'post /updateTravel': 'IndexController.updateTravel',
 
   '/logout': 'AuthController.logout',
 
-  '/index': 'ControllerController.firstPage',
-
+  '/index': 'IndexController.index',
+  '/add': 'IndexController.add',
+  '/overview': 'IndexController.overview',
+  '/travel/:id': 'IndexController.viewTravel',
+  'post /saveExpense': 'IndexController.saveExpense',
+  '/viewProof/:id': 'IndexController.getProof',
   'get /signup': {
     view: 'signup'
   }
+
+
 };

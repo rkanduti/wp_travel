@@ -4,58 +4,36 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
-var bcrypt = require('bcryptjs');
 module.exports = {
   attributes: {
-    userid: {
+    companyid: {
       type: 'integer',
       primaryKey: true,
       autoIncrement: true
     },
-    username: {
+    name: {
       type: 'string',
-      size: 24
+      size: 45
     },
-    mail: {
+    address: {
       type: 'string',
-      size: 24
+      size: 45
     },
-    password: {
+    city: {
       type: 'string',
-      minLength: 5
+      size: 45
     },
-    firstname: {
+    country: {
       type: 'string',
-      size: 24
+      size: 45
     },
-    lastname: {
-      type: 'string',
-      size: 24
-    },
-    companyid: {
-      type: 'integer'
-    },
-    num: {
-      type: 'integer',
-      defaultsTo: 0
+    users: {
+      collection: 'user',
+      via: 'companyid'
     },
     toJSON: function() {
       var obj = this.toObject();
-      delete obj.password;
       return obj;
     }
-  },
-  beforeCreate: function(user, cb) {
-    bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(user.password, salt, function(err, hash) {
-            if (err) {
-                console.log(err);
-                cb(err);
-            } else {
-                user.password = hash;
-                cb();
-            }
-        });
-    });
   }
 };

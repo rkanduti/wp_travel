@@ -21,7 +21,7 @@
 
     '*': true,
 
-   'ControllerController': {
+   'IndexController': {
      '*': 'isAuthenticated'
    },
 
