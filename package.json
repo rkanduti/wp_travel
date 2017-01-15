@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node tt/travis/testScript.js"
+  }
+}
