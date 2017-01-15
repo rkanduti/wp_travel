@@ -39,6 +39,7 @@ module.exports.routes = {
   '/travel/:id': 'IndexController.viewTravel',
   'post /saveExpense': 'IndexController.saveExpense',
   '/viewProof/:id': 'IndexController.getProof',
+  '/locale': 'IndexController.changeLocale',
   'get /signup': {
     view: 'signup'
   }

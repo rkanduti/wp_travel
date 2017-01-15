@@ -90,13 +90,8 @@ function saveExpense(form) {
     var amount = document.forms[form]["amount"].value;
     var file = document.forms[form]["file"];
 
-    console.log(file);
-
-    console.log(name + " " + amount + " " + file);
-
     return true;
 }
-
 
 function viewProof(id) {
   var modal = document.getElementById('myModal');
@@ -115,4 +110,15 @@ function viewProof(id) {
 function closeModal() {
   var modal = document.getElementById('myModal');
   modal.style.display = "none";
+}
+
+function changeLocale() {
+  $.ajax({
+    type: "GET",
+    url: "/locale",
+    success: function(data) {
+      console.log(data);
+      //location.reload();
+    }
+  });
 }

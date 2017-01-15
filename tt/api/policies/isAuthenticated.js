@@ -1,19 +1,21 @@
 module.exports = function(req, res, next) {
+
   if (req.isAuthenticated()) {
+
     User.findOne({
       userid: req.session.user.userid
     })
     .populate('travels')
     .exec(function(err, user) {
       if (err) {
-        sails.log("cannot find user, error");
+        sails.log.error("cannot find user, error");
       }
       Company.findOne({
         companyid: user.companyid
       })
       .exec(function(err, company) {
         if (err) {
-          sails.log("cannot find company, error");
+          sails.log.error("cannot find company, error");
         }
         Travel.find().
         sort('darr DESC').
@@ -22,7 +24,6 @@ module.exports = function(req, res, next) {
         exec(function(err, travels) {
           for(var i = 0; i < travels.length; i++) {
             var travel = travels[i];
-            sails.log(travel);
             //travel.darr = travel.darr.toISOString().slice(0, 10);
             mArr = travel.darr.getMonth()+1;
             mArr = (mArr < 10) ? ("0" + mArr) : mArr;

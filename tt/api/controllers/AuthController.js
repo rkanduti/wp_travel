@@ -11,7 +11,8 @@ module.exports = {
     login: function(req, res) {
 
         passport.authenticate('local', function(err, user, info) {
-          sails.log(info);
+            if(info)
+              sails.log.error(info);
             if ((err) || (!user)) {
                 return res.view("login", {messages: info});
             }

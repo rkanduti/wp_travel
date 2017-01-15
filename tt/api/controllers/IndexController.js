@@ -7,6 +7,7 @@
 var dateFormat = require('dateformat');
  module.exports = {
 	index: function(req, res) {
+    sails.log.info("GET Index");
 
     user = req.session.user;
     company = req.session.company;
@@ -14,13 +15,30 @@ var dateFormat = require('dateformat');
 	},
 
   overview: function(req, res) {
+    sails.log.info("GET Overview");
     res.view('overview', {user: req.session.user, travels: req.session.travels});
   },
 
+  /**
+  * @api {post} /new New travel
+  * @apiName New travel
+  * @apiDescription Create new travel
+  * @apiGroup Travel
+  * @apiPermission signed in
+  * @apiParam {Integer} userid User id.
+  * @apiParam {String} destination Travel destination.
+  * @apiParam {Date} ddep Date of departure.
+  * @apiParam {Date} darr Date of rrival,
+  * @apiParam {String} status Status of travel
+  * @apiSuccessExample Success-Response:
+  *     HTTP/1.1 201 Created
+  */
   newTravel: function(req, res) {
     var darr = req.body.arrival;
 		var ddep = req.body.departure;
 		var destination = req.body.destination;
+
+    sails.log.info("POST new travel");
 
     Travel.create({
       destination: destination,
@@ -30,7 +48,7 @@ var dateFormat = require('dateformat');
       userid: req.session.user.userid
     }).exec(function(err2, travel) {
       if (err2) {
-        sails.log("Cannot make task, add task.");
+        sails.log.error("Cannot make task, add task.");
       }
 
       mArr = travel.darr.getMonth()+1;
@@ -53,7 +71,22 @@ var dateFormat = require('dateformat');
     });
   },
 
+  /**
+  * @api {get} /travel/:id Get travel details
+  * @apiName Travel details
+  * @apiDescription Get travel by id
+  * @apiGroup Travel
+  * @apiPermission signed in
+  * @apiParam {Integer} travelid Travel id.
+  * @apiSuccess {Travel}   travel Requested travel
+  * @apiSuccessExample Success-Response:
+  *     HTTP/1.1 200 OK
+  *     {
+  *       "travel": travel
+  *     }
+  */
   viewTravel: function(req, res) {
+    sails.log.info("GET view travel by id");
     travels = req.session.travels;
     for(var travel = 0; travel < travels.length; travel++) {
       if(travels[travel].travelid == req.params.id) {
@@ -65,10 +98,12 @@ var dateFormat = require('dateformat');
   },
 
   add: function(req, res) {
+    sails.log.info("GET Add");
     res.view('add');
   },
 
   updateTravel: function(req, res) {
+    sails.log.info("UPDATE travel");
     var travelid = req.body.travelid;
     var exp = req.body.expenses;
 
@@ -79,18 +114,29 @@ var dateFormat = require('dateformat');
       expenses.push(expense);
     }
 
-    sails.log(expenses);
     Expenses.create(expenses).exec(function(err, expenses1) {
       if(err)
-        sails.log(err);
+        sails.log.error(err);
 
-      sails.log(expenses1);
       return res.send("true");
     })
   },
 
+
+  /**
+  * @api {post} /saveExpense Add expenses
+  * @apiName Add expenses
+  * @apiDescription Add expenses to travel
+  * @apiGroup Travel
+  * @apiPermission signed in
+  * @apiParam {Integer} travelid Travel id.
+  * @apiSuccessExample Success-Response:
+  *     HTTP/1.1 200 OK
+  *     {
+  *     }
+  */
   saveExpense: function(req, res) {
-    sails.log("tu");
+    sails.log.info("POST new travel expense");
 
     req.file('file').upload({
     // don't allow the total upload size to exceed ~10MB
@@ -100,7 +146,6 @@ var dateFormat = require('dateformat');
       },*/
       dirname: require('path').resolve(sails.config.appPath, './assets/travels/'+req.session.user.userid+'/')
     },function (err, uploadedFiles) {
-      sails.log(uploadedFiles);
       if (err) {
         return res.negotiate(err);
       }
@@ -109,9 +154,7 @@ var dateFormat = require('dateformat');
       if (uploadedFiles.length === 0){
         return res.badRequest('No file was uploaded');
       }
-      console.log(req.body.travelid);
-    // Save the "fd" and the url where the avatar for a user can be accessed
-    sails.log(req.body);
+
       Expenses.create({
         type: req.body.name,
         name: req.body.name,
@@ -122,15 +165,29 @@ var dateFormat = require('dateformat');
         fileName: uploadedFiles[0].fd.split('\\')[uploadedFiles[0].fd.split('\\').length-1]
       }).exec(function(err, expense) {
         if(err)
-          sails.log(err);
+          sails.log.error(err);
 
-        sails.log(expense);
         return res.redirect("/travel/"+req.body.travelid);
       });
     });
   },
 
+  /**
+  * @api {get} /viewProof/:id Get travel expense proof
+  * @apiName Expense proof
+  * @apiDescription Get travel expense proof
+  * @apiGroup Travel
+  * @apiPermission signed in
+  * @apiParam {Integer} expense Expense id.
+  * @apiSuccess {String}   filename URL to proof
+  * @apiSuccessExample Success-Response:
+  *     HTTP/1.1 200 OK
+  *     {
+  *       "filepath": "http://localhost/travel/1/asd.jpg"
+  *     }
+  */
   getProof: function (req, res){
+    sails.log.info("GET travel expense proof");
     Expenses.findOne({expenseid: req.params.id}).exec(function (err, expense) {
       if (err)
         return res.negotiate(err);
@@ -144,28 +201,8 @@ var dateFormat = require('dateformat');
       }
 
       var file = expense.proofPathFd;
-      sails.log(expense.proofPath + "" + file);
       res.send(expense.proofPath + "/" + file);
-      /*var SkipperDisk = require('skipper-disk');
-      var fileAdapter = SkipperDisk();
-      var file = expense.proofPathFd.split('\\')[expense.proofPathFd.split('\\').length-1];
-      //console.log(file);
-      // set the filename to the same file as the user uploaded
-      res.set("Content-disposition", "attachment; filename='" + file + "'");
-      // Stream the file down
-      fileAdapter.read(expense.proofPathFd
-      )
-      .on('error', function (err){
-        return res.serverError(err);
-      })
-      .pipe(res);
-  , function(error , file) {
-        if(error) {
-          res.json(error);
-        } else {
-          res.send(file);
-        }
-      });*/
+
     });
   }
 

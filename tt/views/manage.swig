@@ -8,7 +8,7 @@
   <script src="/js/manage.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
-<body onload="enableAcc()">
+<body>
   <div class="row header">
     <div class="col-2 col-m-2">
       <img src="/images/logo2.svg" class="logo" alt="Logo"/>
@@ -30,12 +30,12 @@
       <ul>
         <li><a href="/">{{ __('Home') }}</a></li>
         <li>
-          <a class="active" href="overview">{{ __('Travel orders') }}</a>
+          <a class="active" href="/overview">{{ __('Travel orders') }}</a>
           <ul>
-            <li><a class="sub" href="add">{{ __('New order') }}</a></li>
+            <li><a class="sub" href="/add">{{ __('New order') }}</a></li>
           </ul>
         </li>
-        <li><a href="contact">{{ __('Contact us') }}</a></li>
+        <li><a href="/contact">{{ __('Contact us') }}</a></li>
       </ul>
     </div>
     <div class="col-1 col-m-8 ">
